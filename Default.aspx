@@ -11,7 +11,7 @@
                 <td style="width: 178px">Student ID</td>
                 <td>
                     <asp:TextBox ID="StudentIDValue" runat="server" Font-Size="Medium" Width="205px"></asp:TextBox>
-                    <asp:Button ID="GetButton" runat="server" BackColor="#6666FF" Font-Bold="True" Text="GET" Width="69px" style="margin-left: 31" />
+                    <asp:Button ID="GetButton" runat="server" BackColor="#6666FF" Font-Bold="True" Text="GET" Width="69px" OnClick="GetButton_Click" style="margin-left: 31" />
                 </td>
             </tr>
             <tr>

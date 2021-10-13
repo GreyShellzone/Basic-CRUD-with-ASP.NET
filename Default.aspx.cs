@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -94,6 +95,22 @@ namespace BasicCRUD
                 RecordTable.DataSource = CustomDataHandler.ReadOne(StudentIDValue.Text);
                 RecordTable.DataBind();
                 EmptyingForm();
+            }
+            else
+            {
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "alert('Check your Records')", true);
+            }
+        }
+
+        protected void GetButton_Click(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrEmpty(StudentIDValue.Text))
+            {
+                StudentIDValue.Text = CustomDataHandler.ReadOneToFill(StudentIDValue.Text)[0];
+                StudentNameValue.Text = CustomDataHandler.ReadOneToFill(StudentIDValue.Text)[1];
+                AdressValue.SelectedValue = CustomDataHandler.ReadOneToFill(StudentIDValue.Text)[2];
+                AgeValue.Text = CustomDataHandler.ReadOneToFill(StudentIDValue.Text)[3];
+                ContactValue.Text = CustomDataHandler.ReadOneToFill(StudentIDValue.Text)[4];
             }
             else
             {

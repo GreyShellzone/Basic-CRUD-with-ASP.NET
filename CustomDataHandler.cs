@@ -59,6 +59,33 @@ namespace BasicCRUD
             return dt;
         }
 
+        public static string[] ReadOneToFill(string ID)
+        {
+            string[] student = new string[5];
+
+            connection.Open();
+            SqlCommand command = new SqlCommand(
+                "Select * From " +
+                    StudentTable +
+                " Where " +
+                    StudentTableID + " = '" + int.Parse(ID) + "'",
+            connection);
+
+            SqlDataReader Reader = command.ExecuteReader();
+
+            while (Reader.Read())
+            {
+                student[0] = Reader.GetValue(0).ToString();
+                student[1] = Reader.GetValue(1).ToString();
+                student[2] = Reader.GetValue(2).ToString();
+                student[3] = Reader.GetValue(3).ToString();
+                student[4] = Reader.GetValue(4).ToString();
+            }
+            connection.Close();
+
+            return student;
+        }
+
         public static void UpdateRecord(string ID, string Name, string Adress, string Age, string Contact)
         {
             connection.Open();
