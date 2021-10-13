@@ -53,6 +53,7 @@
                 <td style="width: 178px">&nbsp;</td>
                 <td>
                     <asp:Button ID="InsertButton" runat="server" BackColor="#6666FF" Font-Bold="True" Text="Insert" Width="75px" OnClick="InsertButton_Click" />
+                    <asp:Button ID="UpdateButton" runat="server" BackColor="#6666FF" Font-Bold="True" Text="Update" Width="75px" OnClick="UpdateButton_Click" />
                 </td>
             </tr>
             <tr>

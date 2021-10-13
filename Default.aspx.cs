@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -22,7 +21,7 @@ namespace BasicCRUD
         {
             if(BasicChecking(StudentIDValue.Text, StudentNameValue.Text, AdressValue.Text, AgeValue.Text, ContactValue.Text))
             {
-                CustomDataHandler.InsertRecord(StudentIDValue.Text, StudentNameValue.Text, AdressValue.Text, AgeValue.Text, ContactValue.Text);
+                CustomDataHandler.CreateRecord(StudentIDValue.Text, StudentNameValue.Text, AdressValue.Text, AgeValue.Text, ContactValue.Text);
                 EmptyingForm();
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "alert('Succesfully Registered')", true);
             }
@@ -35,7 +34,7 @@ namespace BasicCRUD
 
         void LoadRecord()
         {
-            RecordTable.DataSource = CustomDataHandler.Records();
+            RecordTable.DataSource = CustomDataHandler.ReadAll();
             RecordTable.DataBind();
         }
 
@@ -58,5 +57,19 @@ namespace BasicCRUD
             ContactValue.Text = String.Empty;
         }
 
+        protected void UpdateButton_Click(object sender, EventArgs e)
+        {
+            if (BasicChecking(StudentIDValue.Text, StudentNameValue.Text, AdressValue.Text, AgeValue.Text, ContactValue.Text))
+            {
+                CustomDataHandler.UpdateRecord(StudentIDValue.Text, StudentNameValue.Text, AdressValue.Text, AgeValue.Text, ContactValue.Text);
+                EmptyingForm();
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "alert('Succesfully Updated')", true);
+            }
+            else
+            {
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "alert('Check your Records')", true);
+            }
+            LoadRecord();
+        }
     }
 }

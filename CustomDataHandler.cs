@@ -9,10 +9,17 @@ namespace BasicCRUD
 {
     public class CustomDataHandler
     {
-        static string StudentTable = "StudentInfo_Tab";
         static SqlConnection connection = new SqlConnection("Data Source=SHELLZONE-PC\\MSSQLSERVER01;Initial Catalog=BasicCRUD;Integrated Security=True");
+        
+        static string StudentTable = "StudentInfo_Tab";
 
-        public static void InsertRecord(string ID, string Name, string Adress, string Age, string Contact)
+        static string StudentTableID = "StudendID";
+        static string StudentTableName = "StudentName";
+        static string StudentTableAdress = "Adress";
+        static string StudentTableAge = "Age";
+        static string StudentTableContact = "Contact";
+
+        public static void CreateRecord(string ID, string Name, string Adress, string Age, string Contact)
         {
             connection.Open();
 
@@ -26,7 +33,7 @@ namespace BasicCRUD
             connection.Close();
         }
 
-        public static DataTable Records()
+        public static DataTable ReadAll()
         {
             SqlCommand command = new SqlCommand("Select * From " + StudentTable, connection);
             SqlDataAdapter d = new SqlDataAdapter(command);
@@ -34,6 +41,24 @@ namespace BasicCRUD
             d.Fill(dt);
 
             return dt;
+        }
+
+        public static void UpdateRecord(string ID, string Name, string Adress, string Age, string Contact)
+        {
+            connection.Open();
+
+            SqlCommand command = new SqlCommand(
+                "Update " + StudentTable + " set " +
+                    StudentTableName + " = '" + Name + "'," +
+                    StudentTableAdress + " = '" + Adress + "'," +
+                    StudentTableAge + " = '" + int.Parse(Age) + "'," +
+                    StudentTableContact + " = '" + Contact + "'" +
+                "Where " +
+                    StudentTableID + " = '" + int.Parse(ID) + "'",
+            connection);
+
+            command.ExecuteNonQuery();
+            connection.Close();
         }
     }
 }
