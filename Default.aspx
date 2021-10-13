@@ -25,6 +25,7 @@
                 <td style="width: 178px">Adress</td>
                 <td>
                     <asp:DropDownList ID="AdressValue" runat="server">
+                        <asp:ListItem>Select</asp:ListItem>
                         <asp:ListItem>Lubumbashi</asp:ListItem>
                         <asp:ListItem>Kinshasa</asp:ListItem>
                         <asp:ListItem>Matadi</asp:ListItem>
