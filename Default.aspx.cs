@@ -12,17 +12,25 @@ namespace BasicCRUD
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                LoadRecord();
+            }
         }
 
         protected void InsertButton_Click(object sender, EventArgs e)
         {
-            SqlConnection connection = new SqlConnection("Data Source=SHELLZONE-PC\\MSSQLSERVER01;Initial Catalog=BasicCRUD;Integrated Security=True");
-            connection.Open();
-            SqlCommand command = new SqlCommand("Insert into StudentInfo_Tab values ('" + int.Parse(StudentIDValue.Text) + "', '" + StudentNameValue.Text + "', '" + AdressValue.Text + "', '" + int.Parse(AgeValue.Text) + "', '" + ContactValue.Text + "')", connection);
-            command.ExecuteNonQuery();
-            connection.Close();
+            CustomDataHandler.InsertRecord(StudentIDValue.Text, StudentNameValue.Text, AdressValue.Text, AgeValue.Text, ContactValue.Text);
             ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "alert('Succesfully Registered')", true);
+
+            LoadRecord();
         }
+
+        void LoadRecord()
+        {
+            RecordTable.DataSource = CustomDataHandler.Records();
+            RecordTable.DataBind();
+        }
+
     }
 }

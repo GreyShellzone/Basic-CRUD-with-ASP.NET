@@ -63,7 +63,7 @@
                 <td style="width: 194px">&nbsp;</td>
                 <td style="width: 178px">&nbsp;</td>
                 <td>
-                    <asp:GridView ID="GridView1" runat="server" Width="594px">
+                    <asp:GridView ID="RecordTable" runat="server" Width="594px">
                     </asp:GridView>
                 </td>
             </tr>
