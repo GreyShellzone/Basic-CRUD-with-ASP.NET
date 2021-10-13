@@ -71,5 +71,20 @@ namespace BasicCRUD
             }
             LoadRecord();
         }
+
+        protected void DeleteButton_Click(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrEmpty(StudentIDValue.Text))
+            {
+                CustomDataHandler.DeleteRecord(StudentIDValue.Text);
+                EmptyingForm();
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "alert('Succesfully Deleted')", true);
+            }
+            else
+            {
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "alert('Check your Records')", true);
+            }
+            LoadRecord();
+        }
     }
 }

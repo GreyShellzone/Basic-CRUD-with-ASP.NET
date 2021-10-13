@@ -60,5 +60,18 @@ namespace BasicCRUD
             command.ExecuteNonQuery();
             connection.Close();
         }
+
+        public static void DeleteRecord(string ID)
+        {
+            connection.Open();
+
+            SqlCommand command = new SqlCommand(
+                "Delete From " + StudentTable + " Where " +
+                    StudentTableID + " = '" + int.Parse(ID) + "'",
+            connection);
+
+            command.ExecuteNonQuery();
+            connection.Close();
+        }
     }
 }

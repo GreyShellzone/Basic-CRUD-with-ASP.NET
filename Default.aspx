@@ -11,6 +11,7 @@
                 <td style="width: 178px">Student ID</td>
                 <td>
                     <asp:TextBox ID="StudentIDValue" runat="server" Font-Size="Medium" Width="205px"></asp:TextBox>
+                    <asp:Button ID="GetButton" runat="server" BackColor="#6666FF" Font-Bold="True" Text="GET" Width="69px" style="margin-left: 31" />
                 </td>
             </tr>
             <tr>
@@ -54,6 +55,8 @@
                 <td>
                     <asp:Button ID="InsertButton" runat="server" BackColor="#6666FF" Font-Bold="True" Text="Insert" Width="75px" OnClick="InsertButton_Click" />
                     <asp:Button ID="UpdateButton" runat="server" BackColor="#6666FF" Font-Bold="True" Text="Update" Width="75px" OnClick="UpdateButton_Click" />
+                    <asp:Button ID="DeleteButton" runat="server" BackColor="#6666FF" Font-Bold="True" Text="Delete" Width="75px" OnClick="DeleteButton_Click" />
+                    <asp:Button ID="SearchButton" runat="server" BackColor="#6666FF" Font-Bold="True" Text="Search" Width="75px" />
                 </td>
             </tr>
             <tr>
