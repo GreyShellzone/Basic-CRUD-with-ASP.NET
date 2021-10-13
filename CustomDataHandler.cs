@@ -43,6 +43,22 @@ namespace BasicCRUD
             return dt;
         }
 
+        public static DataTable ReadOne(string ID)
+        {
+            SqlCommand command = new SqlCommand(
+                "Select * From " + 
+                    StudentTable +
+                " Where " +
+                    StudentTableID + " = '"+ int.Parse(ID) + "'",
+            connection);
+
+            SqlDataAdapter d = new SqlDataAdapter(command);
+            DataTable dt = new DataTable();
+            d.Fill(dt);
+
+            return dt;
+        }
+
         public static void UpdateRecord(string ID, string Name, string Adress, string Age, string Contact)
         {
             connection.Open();

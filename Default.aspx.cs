@@ -86,5 +86,19 @@ namespace BasicCRUD
             }
             LoadRecord();
         }
+
+        protected void SearchButton_Click(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrEmpty(StudentIDValue.Text))
+            {
+                RecordTable.DataSource = CustomDataHandler.ReadOne(StudentIDValue.Text);
+                RecordTable.DataBind();
+                EmptyingForm();
+            }
+            else
+            {
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "alert('Check your Records')", true);
+            }
+        }
     }
 }
