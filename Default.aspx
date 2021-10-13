@@ -2,41 +2,72 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
-    <div class="jumbotron">
-        <h1>ASP.NET</h1>
-        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS, and JavaScript.</p>
-        <p><a href="http://www.asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-    </div>
-
-    <div class="row">
-        <div class="col-md-4">
-            <h2>Getting started</h2>
-            <p>
-                ASP.NET Web Forms lets you build dynamic websites using a familiar drag-and-drop, event-driven model.
-            A design surface and hundreds of controls and components let you rapidly build sophisticated, powerful UI-driven sites with data access.
-            </p>
-            <p>
-                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301948">Learn more &raquo;</a>
-            </p>
-        </div>
-        <div class="col-md-4">
-            <h2>Get more libraries</h2>
-            <p>
-                NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.
-            </p>
-            <p>
-                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301949">Learn more &raquo;</a>
-            </p>
-        </div>
-        <div class="col-md-4">
-            <h2>Web Hosting</h2>
-            <p>
-                You can easily find a web hosting company that offers the right mix of features and price for your applications.
-            </p>
-            <p>
-                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301950">Learn more &raquo;</a>
-            </p>
-        </div>
+    <div>
+        <div style="font-size:x-large; text-align:center">Student Info Manage Form</div>
+        <br /> 
+        <table class="nav-justified">
+            <tr>
+                <td style="width: 194px">&nbsp;</td>
+                <td style="width: 178px">Student ID</td>
+                <td>
+                    <asp:TextBox ID="StudentIDValue" runat="server" Font-Size="Medium" Width="205px"></asp:TextBox>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 194px">&nbsp;</td>
+                <td style="width: 178px">Student Name</td>
+                <td>
+                    <asp:TextBox ID="StudentNameValue" runat="server" Font-Size="Medium" Width="203px"></asp:TextBox>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 194px">&nbsp;</td>
+                <td style="width: 178px">Adress</td>
+                <td>
+                    <asp:DropDownList ID="AdressValue" runat="server">
+                        <asp:ListItem>Lubumbashi</asp:ListItem>
+                        <asp:ListItem>Kinshasa</asp:ListItem>
+                        <asp:ListItem>Matadi</asp:ListItem>
+                        <asp:ListItem>Likasi</asp:ListItem>
+                        <asp:ListItem>Goma</asp:ListItem>
+                    </asp:DropDownList>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 194px">&nbsp;</td>
+                <td style="width: 178px">Age</td>
+                <td>
+                    <asp:TextBox ID="AgeValue" runat="server" Font-Size="Medium" Width="205px"></asp:TextBox>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 194px">&nbsp;</td>
+                <td style="width: 178px">Contact</td>
+                <td>
+                    <asp:TextBox ID="ContactValue" runat="server" Font-Size="Medium" Width="205px"></asp:TextBox>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 194px">&nbsp;</td>
+                <td style="width: 178px">&nbsp;</td>
+                <td>
+                    <asp:Button ID="InsertButton" runat="server" BackColor="#6666FF" Font-Bold="True" Text="Insert" Width="75px" OnClick="InsertButton_Click" />
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 194px">&nbsp;</td>
+                <td style="width: 178px">&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td style="width: 194px">&nbsp;</td>
+                <td style="width: 178px">&nbsp;</td>
+                <td>
+                    <asp:GridView ID="GridView1" runat="server" Width="594px">
+                    </asp:GridView>
+                </td>
+            </tr>
+        </table>
     </div>
 
 </asp:Content>
